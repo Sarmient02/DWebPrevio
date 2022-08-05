@@ -4,9 +4,13 @@ var editando = false;
 
 function editar() {
   var gusto = document.getElementById("g").value;
-  document.getElementById(
-    "tablagustos"
-  ).innerHTML += `<td>${gusto}</td><td>0</td><td><a onclick="hacerEditable(this)">Editar</a></td>`;
+  if(gusto===""){
+    alert("Primero debe escribir su gusto.")
+  }else{
+    document.getElementById(
+      "tablagustos"
+    ).innerHTML += `<td>${gusto}</td><td>0</td><td><a onclick="hacerEditable(this)">Editar</a></td>`;
+  }
 }
 
 function hacerEditable(fila) {
