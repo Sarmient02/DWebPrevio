@@ -1,29 +1,91 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, i2nitial-scale=1.0">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, i2nitial-scale=1.0" />
     <title>Previo 1</title>
-    <link rel="stylesheet" href="css/bulma.min.css">
-</head>
-<body>
-    <form class="box">
-        <div class="field">
-          <label class="label">Email</label>
-          <div class="control">
-            <input class="input" type="email" placeholder="e.g. alex@example.com">
+    <link rel="stylesheet" href="css/bulma.min.css" />
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  </head>
+  <body>
+    <script src="main.js"></script>
+    <div class="hero is-fullheight">
+      <div class="hero-body">
+        <div class="container">
+          <div class="columns is-centered">
+            <div class="column is-4 has-text-centered">
+              <h1 class="title is-1">Web<span style="color: rgb(85, 85, 85);">Developer</span></h1>
+            </div>
+          </div>
+          <div class="columns is-centered">
+            <form class="column box is-4"  id="formulario" method="get" action="resultado.html" onkeydown="return event.key != 'Enter';">
+              <div class="field has-text-centered">
+                Formulario de afiliación
+              </div>
+              <div class="field">
+                <p class="control has-icons-right">
+                  <input id="nombre" name="nombre" class="input" type="text" placeholder="Nombre completo">
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-user"></i>
+                  </span>
+                </p>
+              </div>
+              <div class="field">
+                <p class="control has-icons-right">
+                  <input id="email" name="email" class="input" type="email" placeholder="Email">
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                </p>
+              </div>
+              <div class="field">
+                <p class="control has-icons-right">
+                  <input id="telefono" name="telefono" class="input" type="text" placeholder="Teléfono">
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-phone"></i>
+                  </span>
+                </p>
+              </div>
+              <div class="field has-addons">
+                <div class="control is-expanded">
+                  <input id="g" class="input" type="text">
+                </div>
+                <div class="control">
+                  <a class="button is-success is-outlined" onclick="editar()">
+                    Gustos
+                  </a>
+                </div>
+              </div>
+              <div class="box">
+                <div class="columns">
+                  <div class="column is-one-quarter">
+                    <button class="button is-large is-success " style="width: 100%; height: 100%;">
+                      <span class="icon is-large">
+                        <i class="fas fa-flag"></i>
+                      </span>
+                    </button>
+                  </div>
+                  <div class="column box">
+                    <table class="table is-fullwidth" id="tablagustos">
+                      <thead>
+                        <th>Gusto</th>
+                        <th>%</th>
+                        <th>edit</th>
+                      </thead>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="field" id="confirm">
+
+              </div>
+              <a href="https://sites.google.com/view/dweb1-uis" class="link">Ir a Site de P web</a>
+            </form>
           </div>
         </div>
-      
-        <div class="field">
-          <label class="label">Password</label>
-          <div class="control">
-            <input class="input" type="password" placeholder="********">
-          </div>
-        </div>
-      
-        <button class="button is-primary">Sign in</button>
-      </form>
-</body>
+      </div>
+    </div>
+    
+  </body>
 </html>
