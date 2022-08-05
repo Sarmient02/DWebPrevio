@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultado</title>
     <link rel="stylesheet" href="css/bulma.min.css" />
-    <script src="results.js" async></script>
 </head>
 <body>
     
@@ -28,7 +27,7 @@
                           </figure>
                         </div>
                         <div class="column">
-                            <h1 class="title is-3" id="titulo"></h1>
+                            <h1 class="title is-3" id="nombre"></h1>
                             <h1 class="subtitle is-3">Ficha</h1>
                         </div>
                     </div>
@@ -73,16 +72,39 @@
         </div>
       </div>
       <script>
-        const nombre = localStorage.getItem("nombre");
-        const email = localStorage.getItem("email");
-        const telefono = localStorage.getItem("telefono");
-        const gusto = localStorage.getItem("gusto");
-        const porcentaje = localStorage.getItem("porcentaje");
-        document.getElementById("titulo").textContent = localStorage.getItem("nombre");
-        document.getElementById("email").textContent = localStorage.getItem("email");
-        document.getElementById("telefono").textContent = localStorage.getItem("telefono");
-        document.getElementById("gusto").textContent = localStorage.getItem("gusto");
-        document.getElementById("porcentaje").textContent = localStorage.getItem("porcentaje");
+        function parseURLParams(url) {
+            var queryStart = url.indexOf("?") + 1,
+                queryEnd   = url.indexOf("#") + 1 || url.length + 1,
+                query = url.slice(queryStart, queryEnd - 1),
+                pairs = query.replace(/\+/g, " ").split("&"),
+                parms = {}, i, n, v, nv;
+
+            if (query === url || query === "") return;
+
+            for (i = 0; i < pairs.length; i++) {
+                nv = pairs[i].split("=", 2);
+                n = decodeURIComponent(nv[0]);
+                v = decodeURIComponent(nv[1]);
+
+                if (!parms.hasOwnProperty(n)) parms[n] = [];
+                parms[n].push(nv.length === 2 ? v : null);
+            }
+            return parms;
+        }
+
+        var urlString = window.location.href;
+        var urlParams = parseURLParams(urlString);
+        var nombre = urlParams['nombre'][0];
+        var email = urlParams['email'][0];
+        var telefono = urlParams['telefono'][0];
+        var gusto = urlParams['gusto'][0];
+        var porcentaje = urlParams['porcentaje'][0];
+        document.getElementById('nombre').textContent = nombre;
+        document.getElementById('email').textContent = email;
+        document.getElementById('telefono').textContent = telefono;
+        document.getElementById('gusto').textContent = gusto;
+        document.getElementById('porcentaje').textContent = porcentaje;
+
     </script>
 </body>
 </html>
